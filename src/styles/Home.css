@@ -1,53 +1,10 @@
+/* Contenedor Principal */
 .home-container {
     width: 100%;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     background: var(--bg-primary);
-}
-
-/* Navbar */
-.navbar {
-    width: 100%;
-    background: var(--navy-dark);
-    /* Blue Background */
-    box-shadow: var(--shadow-sm);
-}
-
-.nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.5rem 4rem;
-    max-width: 1200px;
-    margin: 0 auto;
-    width: 100%;
-}
-
-.nav-logo {
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: var(--white);
-    /* White text */
-    letter-spacing: -0.5px;
-}
-
-.nav-links {
-    display: flex;
-    gap: 2rem;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: rgba(255, 255, 255, 0.7);
-    /* Light white */
-    font-weight: 500;
-    transition: color 0.2s;
-}
-
-.nav-links a:hover,
-.nav-links a.active {
-    color: var(--white);
 }
 
 /* Hero Section */
@@ -78,12 +35,15 @@
 }
 
 .highlight {
-    color: var(--blue-bright);
+    background: linear-gradient(90deg, var(--purple), var(--cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .hero-subtitle {
     font-size: 1.25rem;
-    color: var(--gray-medium);
+    color: var(--navy-dark-op);
     margin-bottom: 2.5rem;
     line-height: 1.6;
 }
@@ -94,6 +54,16 @@
 }
 
 .btn-lg {
+    background-color: var(--navy-dark);
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    max-width: fit-content;
+    box-shadow: var(--shadow-md);
+}
+
+.btn-lg-2 {
+    color: var(--navy-dark);
+    box-shadow: var(--shadow-md);
     padding: 1rem 2rem;
     font-size: 1.1rem;
     max-width: fit-content;
@@ -112,7 +82,7 @@
     position: absolute;
     width: 400px;
     height: 400px;
-    background: var(--blue-sky);
+    background: var(--blue);
     opacity: 0.1;
     border-radius: 50%;
     z-index: 1;
@@ -139,13 +109,13 @@
     gap: 2rem;
     padding: 4rem;
     max-width: 1200px;
-    margin: 0 auto;
+    margin-top: -10rem;
+    margin: -2rem 10rem;
     width: 100%;
 }
 
 .feature-item {
-    background: var(--card-bg);
-    /* Blue Card */
+    background: var(--navy-dark);
     padding: 2rem;
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-md);
@@ -157,7 +127,7 @@
 .feature-item:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-lg);
-    background: var(--navy-medium);
+    background: var(--navy-dark);
 }
 
 .icon {
@@ -165,6 +135,17 @@
     display: block;
     margin-bottom: 1rem;
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+    width: fit-content;
+}
+
+.icon svg {
+    width: 40px;
+    height: 40px;
+    stroke: url(#icon-gradient);
+}
+
+svg defs {
+    position: absolute;
 }
 
 .feature-item h4 {
@@ -182,84 +163,26 @@
 
 /* Animations */
 @keyframes slideInLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-50px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
+    from { opacity: 0; transform: translateX(-50px); }
+    to { opacity: 1; transform: translateX(0); }
 }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
-/* Action Buttons */
-.btn-primary {
-    background: var(--navy-dark);
-    color: var(--white);
-    box-shadow: 0 4px 12px rgba(20, 33, 87, 0.2);
-}
-
-.btn-secondary {
-    background: var(--white);
-    color: var(--navy-dark);
-    border: 2px solid var(--gray-light);
-}
-
-.btn-secondary:hover {
-    border-color: var(--blue-sky);
-    color: var(--blue-sky);
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-    .navbar {
-        width: 100%;
-        padding: 0;
-    }
-
-    .nav-container {
-        padding: 1rem 2rem;
-    }
-
+    .nav-container { padding: 0 2rem; }
     .hero-section {
         flex-direction: column-reverse;
         padding: 2rem;
         text-align: center;
     }
-
-    .hero-actions {
-        justify-content: center;
-    }
-
-    .hero-title {
-        font-size: 2.5rem;
-    }
-
-    .nav-links {
-        display: none;
-    }
-
-    .hero-image {
-        width: 280px;
-    }
-
-    .hero-circle {
-        width: 280px;
-        height: 280px;
-    }
-
-    .features-grid {
-        padding: 2rem;
-    }
+    .hero-actions { justify-content: center; }
+    .hero-title { font-size: 2.5rem; }
+    .nav-links { display: none; }
+    .hero-image { width: 280px; }
+    .features-grid { padding: 2rem; }
 }

@@ -1,28 +1,13 @@
-
-import React, { useState } from 'react';
+import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 import './styles/global.css';
-import Home from './pages/Home';
-import Camera from './pages/Camera';
-import Conversation from './pages/Conversation';
+import AppRoutes from './router/routes';
 
 function App() {
-  const [page, setPage] = useState('home');
-
   return (
-    <>
-      {page === 'home' && (
-        <Home
-          onStart={() => setPage('camera')}
-          onConversation={() => setPage('conversation')}
-        />
-      )}
-      {page === 'camera' && (
-        <Camera onBack={() => setPage('home')} />
-      )}
-      {page === 'conversation' && (
-        <Conversation onBack={() => setPage('home')} />
-      )}
-    </>
+    <Router>
+      <AppRoutes />
+    </Router>
   );
 }
 

@@ -1,10 +1,17 @@
 :root {
   /* Color Palette - User Provided */
   --blue-sky: #2898ee;
+  --dark-blue: #251c5b;
+  --blue: #3594f8;
+  --purple: #8c52ff;
+  --cyan: #5ce1e6;
   --blue-bright: #107acc;
   --cyan-teal: #0cbccc;
-  --navy-medium: #15297c;
-  --navy-dark: #142157;
+  --navy-medium: #251c5b;
+  --navy-dark: #251c5b;
+  --navy-dark-op: #251c5b8c;
+  --gray: #646271;
+  --dark-gray: #4f4d5b;
 
   --white: #FFFFFF;
   --gray-light: #F5F7FA;
@@ -42,6 +49,7 @@
   --radius-xl: 32px;
 
   /* Shadows */
+  --shadow-xs: 0 0px 12px rgba(20, 33, 87, 0.1);
   --shadow-sm: 0 4px 12px rgba(20, 33, 87, 0.1);
   --shadow-md: 0 8px 24px rgba(20, 33, 87, 0.2);
   --shadow-lg: 0 16px 48px rgba(20, 33, 87, 0.3);

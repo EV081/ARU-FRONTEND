@@ -1,22 +1,25 @@
-
-import React from 'react';
+import { MessageCircleMore, BookOpenText, HandMetal } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import aruLogo from '../../assets/aru-modified.png'
+import Navbar from '../components/Navbar';
 import '../styles/Home.css';
 
-const Home = ({ onStart, onConversation }) => {
+const Home = () => {
+    const navigate = useNavigate();
+
     return (
         <div className="home-container">
-            {/* Navbar Section */}
-            <nav className="navbar">
-                <div className="nav-container">
-                    <div className="nav-logo">LSP Traductor</div>
-                    <div className="nav-links">
-                        <a href="#" className="active">Inicio</a>
-                        <a href="#">Cómo funciona</a>
-                        <a href="#">Nosotros</a>
-                    </div>
-                </div>
-            </nav>
+            <svg width="0" height="0" style={{ position: 'absolute' }}>
+                <defs>
+                    <linearGradient id="icon-gradient" x1="0%" y1="0%" x2="100%" y2="0%" gradientUnits="userSpaceOnUse">
+                        <stop offset="0%" style={{ stopColor: 'var(--purple)', stopOpacity: 1 }} />
+                        <stop offset="100%" style={{ stopColor: 'var(--cyan)', stopOpacity: 1 }} />
+                    </linearGradient>
+                </defs>
+            </svg>
 
+            <Navbar />
+            
             <div className="home-content">
                 {/* Hero Section */}
                 <div className="hero-section">
@@ -28,10 +31,10 @@ const Home = ({ onStart, onConversation }) => {
                         </p>
 
                         <div className="hero-actions">
-                            <button className="btn btn-primary btn-lg" onClick={onStart}>
+                            <button className="btn btn-primary btn-lg" onClick={() => navigate('/camera')}>
                                 Comenzar Traductor
                             </button>
-                            <button className="btn btn-secondary btn-lg" onClick={onConversation}>
+                            <button className="btn btn-secondary btn-lg-2" onClick={() => navigate('/conversation')}>
                                 Modo Conversación
                             </button>
                         </div>
@@ -46,21 +49,21 @@ const Home = ({ onStart, onConversation }) => {
                 {/* Feature Section */}
                 <div className="features-grid">
                     <div className="feature-item">
-                        <span className="icon">🤟</span>
+                        <span className="icon"><HandMetal stroke="url(#icon-gradient)" /></span>
                         <div>
                             <h4>Traducción Instantánea</h4>
                             <p>De señas a voz y texto en tiempo real</p>
                         </div>
                     </div>
                     <div className="feature-item">
-                        <span className="icon">💬</span>
+                        <span className="icon"><MessageCircleMore stroke="url(#icon-gradient)" /></span>
                         <div>
                             <h4>Conversación Fluida</h4>
                             <p>Comunicación bidireccional texto-señas</p>
                         </div>
                     </div>
                     <div className="feature-item">
-                        <span className="icon">📚</span>
+                        <span className="icon"><BookOpenText stroke="url(#icon-gradient)"/></span>
                         <div>
                             <h4>Aprendizaje Continuo</h4>
                             <p>Mejora tu vocabulario LSP</p>

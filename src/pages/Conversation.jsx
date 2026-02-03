@@ -1,18 +1,20 @@
-
 import React, { useState, useEffect, useRef } from 'react';
-import Header from '../components/Header';
+import { useNavigate } from 'react-router-dom';
+import Navbar from '../components/Navbar';
 import '../styles/Conversation.css';
 
-const Conversation = ({ onBack }) => {
+const Conversation = () => {
+  const navigate = useNavigate();
   const [messages, setMessages] = useState([
     { id: 1, text: 'Esperando input...', sender: 'system' }
   ]);
   const [input, setInput] = useState('');
+  const [isTyping, setIsTyping] = useState(false);
   const chatEndRef = useRef(null);
 
   useEffect(() => {
     chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
+  }, [messages, isTyping]);
 
   const handleSend = () => {
     if (!input.trim()) return;
@@ -21,6 +23,8 @@ const Conversation = ({ onBack }) => {
     setMessages([...messages, newMsg]);
     setInput('');
 
+    setIsTyping(true);
+
     // Simulate reply
     setTimeout(() => {
       setMessages(prev => [...prev, {
@@ -28,12 +32,14 @@ const Conversation = ({ onBack }) => {
         text: "Entendido (Simulación)",
         sender: 'system'
       }]);
+      setIsTyping(false);
     }, 1000);
   };
 
   return (
     <div className="conversation-page">
-      <Header title="Conversación" onBack={onBack} />
+
+      <Navbar/>
 
       <div className="chat-container-desktop">
         <div className="chat-window">
@@ -44,6 +50,17 @@ const Conversation = ({ onBack }) => {
                 <p>{msg.text}</p>
               </div>
             ))}
+
+            {isTyping && (
+              <div className="chat-bubble system typing">
+                <span className="bubble-label">LSP</span>
+                <div className="typing-dots">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+            )}
             <div ref={chatEndRef} />
           </div>
 
@@ -53,7 +70,7 @@ const Conversation = ({ onBack }) => {
               placeholder="Escribe un mensaje..."
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              onKeyPress={(e) => e.key === 'Enter' && handleSend()}
+              onKeyDown={(e) => e.key === 'Enter' && handleSend()}
             />
             <button className="send-btn" onClick={handleSend}>➤</button>
           </div>

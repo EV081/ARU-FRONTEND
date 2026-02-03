@@ -4,7 +4,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 0 var(--spacing-md);
-    background: rgba(10, 31, 68, 0.8);
+    background: rgb(255, 255, 255);
     backdrop-filter: blur(10px);
     position: sticky;
     top: 0;

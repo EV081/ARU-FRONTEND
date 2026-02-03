@@ -1,10 +1,12 @@
-
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
+import Navbar from '../components/Navbar';
 import FeedbackModal from '../components/FeedbackModal';
 import '../styles/Camera.css';
 
-const Camera = ({ onBack }) => {
+const Camera = () => {
+  const navigate = useNavigate();
   const [translation, setTranslation] = useState("Esperando señas...");
   const [confidence, setConfidence] = useState(0);
   const [showFeedback, setShowFeedback] = useState(false);
@@ -27,7 +29,9 @@ const Camera = ({ onBack }) => {
 
   return (
     <div className="camera-page">
-      <Header title="Traductor en Vivo" onBack={onBack} />
+    
+      {/*<Header title="Traductor en Vivo" onBack={onBack} />*/}
+      <Navbar />  
 
       <div className="camera-container">
         <div className="camera-card">
