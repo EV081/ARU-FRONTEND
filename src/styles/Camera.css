@@ -210,9 +210,14 @@
     color: var(--navy-dark);
 }
 
+.icon-btn-lg svg {
+    transform: translateY(2px);
+}
+
 .icon-btn-lg:hover {
     background: var(--blue-sky);
     color: var(--white);
     border-color: transparent;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
+

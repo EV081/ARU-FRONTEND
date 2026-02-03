@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import {Volume2, Copy} from 'lucide-react'
 import Header from '../components/Header';
 import Navbar from '../components/Navbar';
 import FeedbackModal from '../components/FeedbackModal';
@@ -30,7 +31,6 @@ const Camera = () => {
   return (
     <div className="camera-page">
     
-      {/*<Header title="Traductor en Vivo" onBack={onBack} />*/}
       <Navbar />  
 
       <div className="camera-container">
@@ -50,7 +50,7 @@ const Camera = () => {
             <div className="output-header">
               <div className="confidence-badge">
                 <div className="confidence-dot" style={{ background: confidence > 80 ? 'var(--success-green)' : 'orange' }}></div>
-                IA Confidence: {confidence}%
+                Confiabilidad IA: {confidence}%
               </div>
             </div>
 
@@ -62,10 +62,10 @@ const Camera = () => {
 
             <div className="action-row">
               <button className="btn btn-secondary icon-btn-lg" aria-label="Escuchar">
-                <span style={{ fontSize: '1.2rem' }}>🔊</span> Escuchar
+                <span > <Volume2 />  </span> Escuchar
               </button>
               <button className="btn btn-secondary icon-btn-lg" aria-label="Copiar">
-                <span style={{ fontSize: '1.2rem' }}>📋</span> Copiar
+                <span > <Copy /> </span> Copiar
               </button>
             </div>
           </div>
