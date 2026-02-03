@@ -1,0 +1,79 @@
+.feedback-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    /* Mobile style sheet: bottom sheet */
+    z-index: 200;
+}
+
+.feedback-modal {
+    width: 100%;
+    /* max-width: 480px; */
+    /* Handled by parent container */
+    background: var(--navy-dark);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+    text-align: center;
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+.feedback-modal h3 {
+    margin-bottom: var(--spacing-xs);
+}
+
+.subtitle {
+    color: var(--gray-medium);
+    margin-bottom: var(--spacing-md);
+}
+
+.feedback-actions {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.fb-btn {
+    flex: 1;
+    padding: var(--spacing-md);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--white);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+.fb-btn.good:hover {
+    border-color: var(--success-green);
+    color: var(--success-green);
+}
+
+.fb-btn.bad:hover {
+    border-color: var(--error-red);
+    color: var(--error-red);
+}
+
+.close-link {
+    background: none;
+    border: none;
+    color: var(--gray-medium);
+    text-decoration: underline;
+    cursor: pointer;
+}

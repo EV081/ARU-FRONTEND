@@ -1,0 +1,109 @@
+:root {
+  /* Color Palette - User Provided */
+  --blue-sky: #2898ee;
+  --blue-bright: #107acc;
+  --cyan-teal: #0cbccc;
+  --navy-medium: #15297c;
+  --navy-dark: #142157;
+
+  --white: #FFFFFF;
+  --gray-light: #F5F7FA;
+  --gray-medium: #aab5c5;
+  --success-green: #00D9A3;
+  --error-red: #FF3B5C;
+
+  /* Theme Setup: White BS, Blue Cards */
+  --bg-primary: var(--white);
+  --bg-secondary: var(--gray-light);
+  --card-bg: var(--navy-dark);
+  /* Blue Squares */
+  --card-text: var(--white);
+  /* Text inside Blue Squares */
+
+  --text-primary: var(--navy-dark);
+  /* Text on White Background */
+  --text-secondary: var(--gray-medium);
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, var(--white) 0%, var(--gray-light) 100%);
+  --gradient-card: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy-medium) 100%);
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+
+  /* Shadows */
+  --shadow-sm: 0 4px 12px rgba(20, 33, 87, 0.1);
+  --shadow-md: 0 8px 24px rgba(20, 33, 87, 0.2);
+  --shadow-lg: 0 16px 48px rgba(20, 33, 87, 0.3);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  background: var(--gradient-primary);
+  color: var(--white);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* overflow: hidden; */
+  /* Allow scrolling if needed on mobile */
+}
+
+/* App Container - Full Web Layout */
+#root {
+  width: 100%;
+  min-height: 100vh;
+  background: var(--bg-primary);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Remove the mobile-frame media query */
+
+/* Utility Classes */
+.btn {
+  border: none;
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  width: 100%;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-primary {
+  background: var(--white);
+  color: var(--navy-primary);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
